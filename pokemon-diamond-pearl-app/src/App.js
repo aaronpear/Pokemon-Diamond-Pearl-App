@@ -6,6 +6,9 @@ function App() {
   const [allPokemon, setAllPokemon] = useState([]);
 
   useEffect(() => {
+    // Here we only want to get the names of the Pokemon in the region we want (Sinnoh)
+    // With the name passed through the TeamForm -> TeamMember components, we will make
+    // another call to the API within TeamMember for Pokemon specific data
     axios.get('https://pokeapi.co/api/v2/pokedex/5/')
       .then(response => {
         // console.log(response.data.pokemon_entries);
@@ -15,17 +18,17 @@ function App() {
         console.error(error);
       })
   }, [])
-  console.log(allPokemon);
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>Pick Your Team!</h1>
-        {
+        {/* {
           allPokemon.map(mon => (
-            // console.log(mon)
+            console.log(mon)
             <h2>{mon.pokemon_species.name}</h2>
           ))
-        }
+        } */}
       </header>
     </div>
   );
