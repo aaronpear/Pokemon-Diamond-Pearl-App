@@ -1,9 +1,11 @@
 import './App.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react'
+import TeamForm from './components/TeamForm';
 
 function App() {
   const [allPokemon, setAllPokemon] = useState([]);
+  const [team, setTeam] = useState([]);
 
   useEffect(() => {
     // Here we only want to get the names of the Pokemon in the region we want (Sinnoh)
@@ -23,6 +25,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Pick Your Team!</h1>
+        <TeamForm props={allPokemon} />
         {/* {
           allPokemon.map(mon => (
             console.log(mon)
